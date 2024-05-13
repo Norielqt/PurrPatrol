@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "217721913089",
+    "project_id": "fir-e64da",
+    "storage_bucket": "fir-e64da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217721913089:android:f5d838affbcf704f012500",
+        "android_client_info": {
+          "package_name": "com.example.cc206_cictscape"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrVKzJgLKqHEb-akrl4caeSIAxo_tLwD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
