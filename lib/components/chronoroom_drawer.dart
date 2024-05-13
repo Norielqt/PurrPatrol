@@ -53,8 +53,8 @@ class _MyFormState extends State<MyForm> {
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
-            primaryColor: Color(0xFFFAA001),
-            hintColor: Color(0xFFFAA001),
+            primaryColor: const Color(0xFFFAA001),
+            hintColor: const Color(0xFFFAA001),
             colorScheme: const ColorScheme.light(primary: Color(0xFFFAA001)),
             buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
           ),
@@ -107,7 +107,7 @@ class _MyFormState extends State<MyForm> {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq1PoIZWZj2a5zWdu0VlGBDnohDK0Htn_TMxHkjiG7A&s',
@@ -125,15 +125,15 @@ class _MyFormState extends State<MyForm> {
                   child: InkWell(
                     onTap: () => _selectDate(context),
                     child: IgnorePointer(
-                      child: Container(
+                      child: SizedBox(
                         width: 280,
                         child: TextField(
                           controller: _dateController,
                           readOnly: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Select Date',
-                            labelStyle: const TextStyle(color: Colors.white),
-                            suffixIcon: const Icon(Icons.calendar_today, color: Colors.white),
+                            labelStyle: TextStyle(color: Colors.white),
+                            suffixIcon: Icon(Icons.calendar_today, color: Colors.white),
                             focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             ),
@@ -141,7 +141,7 @@ class _MyFormState extends State<MyForm> {
                               borderSide: BorderSide(color: Colors.white), // Set the color of the default border
                             ),
                           ),
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
@@ -152,15 +152,15 @@ class _MyFormState extends State<MyForm> {
                   child: InkWell(
                     onTap: () => _selectTime(context),
                     child: IgnorePointer(
-                      child: Container(
+                      child: SizedBox(
                         width: 280,
                         child: TextField(
                           controller: _timeController,
                           readOnly: true,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Select Time',
-                            labelStyle: const TextStyle(color: Colors.white),
-                            suffixIcon: const Icon(Icons.access_time, color: Colors.white),
+                            labelStyle: TextStyle(color: Colors.white),
+                            suffixIcon: Icon(Icons.access_time, color: Colors.white),
                             focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                             ),
@@ -168,7 +168,7 @@ class _MyFormState extends State<MyForm> {
                               borderSide: BorderSide(color: Colors.white), // Set the color of the default border
                             ),
                           ),
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
@@ -177,19 +177,19 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 40),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Container(
+                  child: SizedBox(
                     
                     width: 100,
                     child: ElevatedButton(
                       onPressed: _redirectToResultsPage,
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Color(0xFF215049), backgroundColor: Colors.white,
+                        foregroundColor: const Color(0xFF215049), backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(color: Color(0xFF215049)),
+                          side: const BorderSide(color: Color(0xFF215049)),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Find',
                         style: TextStyle(
                           color: Color(0xFF215049),
@@ -211,8 +211,8 @@ class _MyFormState extends State<MyForm> {
             children: <Widget>[
               Container(
                 height: 80,
-                padding: EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(20.0),
+                decoration: const BoxDecoration(
                   color: Color(0xFF215049),
                 ),
                 child: const Text(
@@ -226,12 +226,12 @@ class _MyFormState extends State<MyForm> {
               _buildHoverableDrawerItem('Home', Icons.home, () {
                 Navigator.pop(context);
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                    context, MaterialPageRoute(builder: (context) => const HomeScreen()));
               }),
               _buildHoverableDrawerItem('AddPurr', Icons.access_time, () {
                 Navigator.pop(context);
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => AddPurr()));
+                    context, MaterialPageRoute(builder: (context) => const AddPurr()));
               }),
               _buildHoverableDrawerItem('My List', Icons.chat, () {
                 Navigator.pop(context);
@@ -241,7 +241,7 @@ class _MyFormState extends State<MyForm> {
               _buildHoverableDrawerItem('Logout', Icons.exit_to_app, () {
                 Navigator.pop(context);
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => WelcomePage()));
+                    context, MaterialPageRoute(builder: (context) => const WelcomePage()));
               }),
             ],
           ),
@@ -263,7 +263,7 @@ class _MyFormState extends State<MyForm> {
             children: [
               Icon(icon, color: Colors.white),
               const SizedBox(width: 16),
-              Text(title, style: TextStyle(color: Colors.white)),
+              Text(title, style: const TextStyle(color: Colors.white)),
             ],
           ),
         ),
@@ -284,7 +284,7 @@ class ResultsPage extends StatelessWidget {
   final String chosenDate;
   final String chosenTime;
 
-  ResultsPage({required this.chosenDate, required this.chosenTime});
+  ResultsPage({super.key, required this.chosenDate, required this.chosenTime});
 
   // Sample room data (replace it with your actual data)
   final List<Room> rooms = [
@@ -299,12 +299,12 @@ class ResultsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF215049),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(
+        title: const Text(
           'Results',
           style: TextStyle(color: Colors.white),
         ),
@@ -313,13 +313,13 @@ class ResultsPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20.0, right: 20.0),
             child: Text(
               '$chosenDate $chosenTime',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: NetworkImage(
               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq1PoIZWZj2a5zWdu0VlGBDnohDK0Htn_TMxHkjiG7A&s',
@@ -348,7 +348,7 @@ class ResultsPage extends StatelessWidget {
                               color: Colors.black.withOpacity(0.5),
                               spreadRadius: 2,
                               blurRadius: 7,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ],
                         ),
@@ -371,10 +371,10 @@ class ResultsPage extends StatelessWidget {
                             children: [
                               Text(
                                 'Time: ${room.startTime} - ${room.endTime}',
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
 
-                              Icon(
+                              const Icon(
                                 Icons.check_circle,
                                 color: Color(0xFFFAA001),
                               ),
@@ -391,7 +391,7 @@ class ResultsPage extends StatelessWidget {
                           color: Colors.black.withOpacity(0.7),
                           child: Text(
                             room.name,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       ),

@@ -4,18 +4,20 @@ import 'package:cc206_cictscape/screens/welcomescreen.dart';
 import 'package:flutter/material.dart';
 
 class MyListPage extends StatelessWidget {
+  const MyListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('CaleBot'),
+        title: const Text('CaleBot'),
         backgroundColor: const Color(0xFF215049),
       ),
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq1PoIZWZj2a5zWdu0VlGBDnohDK0Htn_TMxHkjiG7A&s',
@@ -31,7 +33,7 @@ class MyListPage extends StatelessWidget {
                 width: 350,
                 height: 600,
                 decoration: BoxDecoration(
-                color: Color.fromARGB(255, 217, 217, 217),
+                color: const Color.fromARGB(255, 217, 217, 217),
                 borderRadius: BorderRadius.circular(20),
               ),
             ), 
@@ -44,7 +46,7 @@ class MyListPage extends StatelessWidget {
                 child: Container(
                   height: 200,
                   width: 200,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                   image: DecorationImage(
                   image: NetworkImage(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsq1PoIZWZj2a5zWdu0VlGBDnohDK0Htn_TMxHkjiG7A&s',
@@ -60,10 +62,10 @@ class MyListPage extends StatelessWidget {
               Positioned(
               top: 50,
               left: 40,
-              child: Container(
+              child: SizedBox(
               width: 200,
               height: 200,
-              child: Stack(
+              child: const Stack(
                 children: [
                   Center(
                     child: Text(
@@ -89,7 +91,7 @@ class MyListPage extends StatelessWidget {
               Positioned(
               top: 550,
               left: 50,
-              child: Container(
+              child: SizedBox(
               width: 240,
               height: 50,
               child: Stack(
@@ -101,18 +103,18 @@ class MyListPage extends StatelessWidget {
                         filled: true,
                         fillColor: Colors.white, // Set background color
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF215049)),
+                          borderSide: const BorderSide(color: Color(0xFF215049)),
                           borderRadius: BorderRadius.circular(15.0), // Set border radius
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xFF215049)),
+                          borderSide: const BorderSide(color: Color(0xFF215049)),
                           borderRadius: BorderRadius.circular(15.0), // Set border radius
                         ),
 
                         ),
 
                       style: 
-                      TextStyle(      
+                      const TextStyle(      
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                         color: Color(0xFF215049),
@@ -134,15 +136,15 @@ class MyListPage extends StatelessWidget {
                 child: Container(
                   height: 200,
                   width: 200,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                   ),
-                  child: Stack(
+                  child: const Stack(
                     children: [
                       Center(
                         child: Icon(
                           Icons.send,
                           size: 35,
-                          color: const Color(0xFF215049),
+                          color: Color(0xFF215049),
                         ),
                       )
                     ],
@@ -163,8 +165,8 @@ class MyListPage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   height: 80,
-                  padding: EdgeInsets.all(20.0),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(20.0),
+                  decoration: const BoxDecoration(
                     color: Color(0xFF215049),
                   ),
                   child: const Text(
@@ -178,12 +180,12 @@ class MyListPage extends StatelessWidget {
                 _buildHoverableDrawerItem('Home', Icons.home, () {
                   Navigator.pop(context);
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                 }),
                 _buildHoverableDrawerItem('Add Purr', Icons.access_time, () {
                   Navigator.pop(context);
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => AddPurr()));
+                      context, MaterialPageRoute(builder: (context) => const AddPurr()));
                 }),
                 _buildHoverableDrawerItem('My List', Icons.chat, () {
                   Navigator.pop(context);
@@ -193,7 +195,7 @@ class MyListPage extends StatelessWidget {
                 _buildHoverableDrawerItem('Logout', Icons.exit_to_app, () {
                   Navigator.pop(context);
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => WelcomePage()));
+                      context, MaterialPageRoute(builder: (context) => const WelcomePage()));
                 }),
               ],
             ),
@@ -221,7 +223,7 @@ class MyListPage extends StatelessWidget {
               children: [
                 Icon(icon, color: Colors.white),
                 const SizedBox(width: 16),
-                Text(title, style: TextStyle(color: Colors.white)),
+                Text(title, style: const TextStyle(color: Colors.white)),
               ],
             ),
           ),
@@ -233,7 +235,7 @@ class MyListPage extends StatelessWidget {
  
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomeScreen(),
   ));
